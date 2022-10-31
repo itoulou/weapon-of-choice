@@ -1,0 +1,14 @@
+app:
+  port: 5000
+  assets:
+    path: 'public'
+    templateContentPath: '/content'
+  session:
+    secretKey: secret
+db:
+  secretKey: qwertyuiopasdfghjklzxcvbnm
+  username: 'fatboyslim'
+  password: 'wop'
+  database: 'weapon_of_choice_test'
+  host: '127.0.0.1'
+  dialect: 'postgres'
