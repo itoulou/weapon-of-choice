@@ -50,7 +50,6 @@ exports.init = function () {
 
     //App
     app.get('/', middleware.checkAuthenticated, (req, res) => {
-        console.log("FIRING")
         res.render('entro/index.html');
     });
 
@@ -80,16 +79,9 @@ exports.init = function () {
     
    
     let http;
-
-    if (process.env.NODE_ENV === 'test') {
-        http = app.listen(port, () => {
-            console.log(`Now listening on port ${port+1}`);
-        }); 
-    } else {
-        http = app.listen(port, () => {
-            console.log(`Now listening on port ${port}`);
-        });
-    }
+    http = app.listen(port, () => {
+        console.log(`Now listening on port ${port}`);
+    });
     
     return {app, http}
 }

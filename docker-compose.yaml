@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  fatboy-slim-wop:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - "fatboy-db"
+    command: npm run start
+  fatboy-db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DATABASE: weapon_of_choice
+      POSTGRES_USER: fatboyslim
+      POSTGRES_PASSWORD: wop
