@@ -4,13 +4,19 @@ services:
     build: .
     ports:
       - 5000:5000
+    environment:
+      DB_SCHEMA: weapon_of_choice
+      DB_USER: fatboyslim
+      DB_PASSWORD: wop
+      DB_HOST: postgres
     depends_on:
-      - fatboy-db
-  fatboy-db:
+      - postgres
+  postgres:
     image: postgres
+    restart: always 
     ports:
       - 5432:5432
     environment:
-      POSTGRES_DATABASE: weapon_of_choice
+      POSTGRES_DB: weapon_of_choice
       POSTGRES_USER: fatboyslim
       POSTGRES_PASSWORD: wop
