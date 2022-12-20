@@ -35,4 +35,13 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.users = require('./user') (sequelize, DataTypes);
+db.playlists = require('./playlist') (sequelize, DataTypes);
+db.tracks = require('./track') (sequelize, DataTypes);
+
+db.users.hasMany(db.playlists, {as: 'playlists', foreignKey: 'User_userId', onDelete: 'CASCADE'});
+db.playlists.belongsTo(db.users, {foreignKey: 'User_userId'})
+db.playlists.hasMany(db.tracks, {as: 'tracks', foreignKey: 'Playlist_playlistId', onDelete: 'CASCADE'});
+db.tracks.belongsTo(db.playlists, {foreignKey: 'Playlist_playlistId'})
+
 module.exports = db;

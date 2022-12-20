@@ -14,6 +14,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const middleware = require('./app/middleware/userAuth')
 const methodOverride = require('method-override');
+const { env } = require('process');
 
 exports.init = function () {
     const app = express();
