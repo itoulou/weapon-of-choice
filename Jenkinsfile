@@ -6,7 +6,7 @@ pipeline {
         nodejs 'Node-19.3'
     }
 
-    environmnet {
+    environment {
         NEW_VERSION = '1.0.0'
         SERVER_CREDENTIALS = credentials('server-credentials')
     }
