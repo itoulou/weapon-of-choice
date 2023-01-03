@@ -1,0 +1,18 @@
+app:
+  port: 5000
+  assets:
+    path: 'public'
+    templateContentPath: '/content'
+  session:
+    secretKey: secret
+db:
+  secretKey: qwertyuiopasdfghjklzxcvbnm
+  username: 'fatboyslim'
+  password: 'wop'
+  database: 'weapon_of_choice'
+  host: 'postgres'
+  dialect: 'postgres'
+api:
+  url: https://spotify23.p.rapidapi.com/
+  key: 42b2af68b8mshf6c41402507ecdfp147ab9jsnff58206c8d9c
+  host: spotify23.p.rapidapi.com

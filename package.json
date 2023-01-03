@@ -5,6 +5,7 @@
   "scripts": {
     "start": "NODE_PATH=. node server.js",
     "start:dev": "NODE_PATH=. nodemon server.js",
+    "start:docker": "NODE_PATH=. NODE_ENV=docker node server.js",
     "test": "cross-env NODE_PATH=. NODE_ENV=test mocha test/unit --testTimeout=10000",
     "test-unit-2": "cross-env NODE_PATH=. NODE_ENV=test jest",
     "test-unit": "NODE_PATH=. NODE_ENV=test mocha test/unit",
