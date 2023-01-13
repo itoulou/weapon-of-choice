@@ -8,7 +8,7 @@ module.exports = {
   test: {
     username: 'fatboyslim',
     password: 'wop',
-    database: 'weapon_of_choice_test',
+    database: 'weapon_of_choice',
     host: '127.0.0.1',
     dialect: 'postgres'
   },
