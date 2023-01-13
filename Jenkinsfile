@@ -17,6 +17,7 @@ pipeline {
                 echo 'building the application...'
                 echo "building version ${NEW_VERSION}"
                 sh "docker pull itoulou/weapon-of-choice:fatboy-slim"
+                sh "npm install"
                 sh "docker-compose up -d fatboy-slim-wop"
             }
         }
