@@ -16,17 +16,20 @@ pipeline {
             steps {
                 echo 'building the application...'
                 echo "building version ${NEW_VERSION}"
-                sh "docker pull itoulou/weapon-of-choice:fatboy-slim"
-                sh "npm install"
-                // sh "docker-compose up -d fatboy-slim-wop"
+                // sh "docker pull itoulou/weapon-of-choice:fatboy-slim"
+                // sh "docker build -t fatboy-slim-wop ."
+                // sh "npm install"
+                sh "docker-compose up -d --build fatboy-slim-wop"
             }
         }
 
         stage("test") {
             steps {
                 echo 'testing the application...'
-                sh "npm run pretest"
-                sh "npm run test-unit"
+                sh "docker exec -it fatboy-slim-wop npm run pretest"
+                sh "docker exec -it fatboy-slim-wop npm run test-unit"
+                // sh "npm run pretest"
+                // sh "npm run test-unit"
             }
         }
 
