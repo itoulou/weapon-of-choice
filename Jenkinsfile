@@ -26,6 +26,7 @@ pipeline {
         stage("test") {
             steps {
                 echo 'testing the application...'
+                sh "docker ps"
                 sh "docker-compose exec -T fb-slim-pipeline_master_fatboy-slim-wop_1 npm run pretest"
                 sh "docker-compose exec -T fb-slim-pipeline_master_fatboy-slim-wop_1 npm run test-unit"
                 // sh "npm run pretest"
