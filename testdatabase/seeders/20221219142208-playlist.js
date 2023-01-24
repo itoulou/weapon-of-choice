@@ -18,15 +18,11 @@ module.exports = {
     [
       {
         name: 'Jane test playlist',
-        User_userId: '1',
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        User_userId: '1'
       },
       {
         name: 'Jon test playlist',
-        User_userId: '2',
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        User_userId: '2'
       },
     ],
     {},
