@@ -16,7 +16,14 @@ module.exports = {
         type: Sequelize.STRING
       },
       Playlist_playlistId: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: { model: 'playlists', key: 'id' }
+      },
+      createdAt: {
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        type: Sequelize.DATE
       }
     });
   },
