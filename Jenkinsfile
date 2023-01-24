@@ -19,7 +19,7 @@ pipeline {
                 // sh "docker pull itoulou/weapon-of-choice:fatboy-slim"
                 // sh "docker build -t fatboy-slim-wop ."
                 // sh "npm install"
-                sh "docker-compose up -d --build fatboy-slim-wop"
+                sh "docker-compose up -d --build"
             }
         }
 
