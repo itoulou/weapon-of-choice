@@ -15,9 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Track.init({
     name: DataTypes.STRING,
-    trackId: DataTypes.STRING,
-    Playlist_playlistId: DataTypes.STRING
-
+    trackId: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'track',
