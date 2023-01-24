@@ -18,27 +18,37 @@ module.exports = {
       {
         name: 'track 1',
         trackId: '123456789',
-        Playlist_playlistId: '1'
+        Playlist_playlistId: '1',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         name: 'track 2',
         trackId: 'qwewqe213',
-        Playlist_playlistId: '1'
+        Playlist_playlistId: '1',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'track 3',
         trackId: 'gfgdsg3432432',
-        Playlist_playlistId: '1'
+        Playlist_playlistId: '1',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'track 1',
         trackId: '5254235sffs',
-        Playlist_playlistId: '2'
+        Playlist_playlistId: '2',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         name: 'track 2',
         trackId: 'fgdh5335gfdg',
-        Playlist_playlistId: '2'
+        Playlist_playlistId: '2',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     ],
     {},
