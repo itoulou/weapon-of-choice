@@ -21,7 +21,7 @@ pipeline {
                 // sh "npm install"
                 // sh "docker-compose up -d --build"
                 sh "docker build -t fatboy-slim-wop ."
-                sh "docker run -d -it -p 5000:5000 --name=fatboy-slim-wop npm run start:docker --host=0.0.0.0"
+                sh "docker run -d -it -p 5000:5000 --name=app fatboy-slim-wop npm run start:docker -- --host=0.0.0.0"
             }
         }
 
