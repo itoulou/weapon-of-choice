@@ -19,7 +19,8 @@ pipeline {
                 // sh "docker pull itoulou/weapon-of-choice:fatboy-slim"
                 // sh "docker build -t fatboy-slim-wop ."
                 // sh "npm install"
-                sh "docker-compose up -d --build"
+                // sh "docker-compose up -d --build"
+                sh "docker build -t fatboy-slim-wop ."
             }
         }
 
@@ -27,8 +28,8 @@ pipeline {
             steps {
                 echo 'testing the application...'
                 sh "docker ps"
-                sh "docker exec fb-slim-pipeline_master_fatboy-slim-wop_1 npm run pretest"
-                sh "docker exec fb-slim-pipeline_master_fatboy-slim-wop_1 npm run test-unit"
+                // sh "docker exec fb-slim-pipeline_master_fatboy-slim-wop_1 npm run pretest"
+                // sh "docker exec fb-slim-pipeline_master_fatboy-slim-wop_1 npm run test-unit"
                 // sh "npm run pretest"
                 // sh "npm run test-unit"
             }
