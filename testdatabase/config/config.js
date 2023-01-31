@@ -9,7 +9,7 @@ module.exports = {
     username: 'fatboyslim',
     password: 'wop',
     database: 'weapon_of_choice',
-    host: 'localhost',
+    host: 'postgres',
     dialect: 'postgres'
   },
   production: {

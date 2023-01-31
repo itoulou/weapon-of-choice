@@ -9,7 +9,7 @@ services:
       DB_SCHEMA: weapon_of_choice
       DB_USER: fatboyslim
       DB_PASSWORD: wop
-      DB_HOST: localhost
+      DB_HOST: postgres
     depends_on:
       - postgres
   postgres:
@@ -22,4 +22,4 @@ services:
       POSTGRES_DB: weapon_of_choice
       POSTGRES_USER: fatboyslim
       POSTGRES_PASSWORD: wop
-      POSTGRES_HOST: localhost
+      POSTGRES_HOST: postgres
