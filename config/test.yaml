@@ -10,5 +10,5 @@ db:
   username: 'fatboyslim'
   password: 'wop'
   database: 'weapon_of_choice'
-  host: 'postgres'
+  host: '127.0.0.1'
   dialect: 'postgres'
