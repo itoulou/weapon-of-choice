@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo 'testing the application...'
                 sh "docker ps"
-                sh "docker exec fb-slim-pipeline_master_fatboy-slim-wop_1 npm run pretest && npm run test-unit"
+                sh "docker exec fatboy-slim-wop npm run pretest && npm run test-unit"
                 // sh "npm run test-unit"
                 // sh "npm run pretest"
                 // sh "npm run test-unit"
