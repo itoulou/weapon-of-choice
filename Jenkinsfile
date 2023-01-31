@@ -19,11 +19,11 @@ pipeline {
                 // sh "docker pull itoulou/weapon-of-choice:fatboy-slim"
                 // sh "docker build -t fatboy-slim-wop ."
                 // sh "npm install"
-                // sh "docker-compose up -d --build"
-                sh "docker pull postgres"
-                sh "docker run --name postgres -e POSTGRES_HOST=postgres POSTGRES_PASSWORD=wop -d postgres "
-                sh "docker build -t fatboy-slim-wop ."
-                sh "docker run -d -it -p 5000:5000 --name=app fatboy-slim-wop npm run start:docker -- --host=0.0.0.0"
+                sh "docker-compose up -d --build"
+                // sh "docker pull postgres"
+                // sh "docker run --name postgres -e POSTGRES_HOST=postgres POSTGRES_PASSWORD=wop -d postgres "
+                // sh "docker build -t fatboy-slim-wop ."
+                // sh "docker run -d -it -p 5000:5000 --name=app fatboy-slim-wop npm run start:docker -- --host=0.0.0.0"
             }
         }
 
@@ -31,8 +31,8 @@ pipeline {
             steps {
                 echo 'testing the application...'
                 sh "docker ps"
-                // sh "docker exec fb-slim-pipeline_master_fatboy-slim-wop_1 npm run pretest"
-                // sh "docker exec fb-slim-pipeline_master_fatboy-slim-wop_1 npm run test-unit"
+                sh "docker exec fb-slim-pipeline_master_fatboy-slim-wop_1 npm run pretest"
+                sh "docker exec fb-slim-pipeline_master_fatboy-slim-wop_1 npm run test-unit"
                 // sh "npm run pretest"
                 // sh "npm run test-unit"
             }
