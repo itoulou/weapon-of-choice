@@ -11,6 +11,7 @@ db:
   password: 'wop'
   database: 'weapon_of_choice'
   host: '127.0.0.1'
+  port: 5432
   dialect: 'postgres'
 api:
   url: https://spotify23.p.rapidapi.com/
