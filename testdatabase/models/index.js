@@ -14,7 +14,7 @@ const db = {};
 
 
 let sequelize;
-sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:${config.db.host}/${config.db.database}`);
+sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:5432/${config.db.database}`);
 
 fs
   .readdirSync(__dirname)

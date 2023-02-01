@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const config = require('config');
 
 logging = false
-const sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.database}`, {dialect: 'postgres', logging: logging});
+const sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:5432/${config.db.database}`, {dialect: 'postgres', logging: logging});
 
 sequelize.authenticate().then(() => {
     console.log(`Database connected to ${sequelize.config.database}`);

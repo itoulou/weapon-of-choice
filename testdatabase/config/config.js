@@ -10,7 +10,6 @@ module.exports = {
     password: 'wop',
     database: 'weapon_of_choice',
     host: 'postgres',
-    port: 5432,
     dialect: 'postgres'
   },
   production: {
