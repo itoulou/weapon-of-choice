@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   fatboy-slim-wop:
-    container_name: fatboy-slim-wop
+    container_name: postgres
     build: .
     ports:
       - 5000:5000
@@ -12,8 +12,6 @@ services:
       DB_HOST: postgres
     depends_on:
       - postgres
-    links:
-      - postgres:database
   postgres:
     container_name: postgres
     image: postgres
