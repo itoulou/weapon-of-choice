@@ -3,12 +3,12 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const envConfigs = require('../config/config');
-// const envConfigs = require('config')
+// const envConfigs = require('../config/config');
+const config = require('config')
 
 const basename = path.basename(__filename);
 // const env = process.env.NODE_ENV || 'development';
-const config = envConfigs[env];
+// const config = envConfigs[env];
 // const config = envConfigs.test
 const db = {};
 
