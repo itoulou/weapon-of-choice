@@ -32,9 +32,9 @@ pipeline {
 
         stage("push image to DockerHub") {
             steps {
-                echo 'pushing image...'
-                sh "docker image tag fb-wop itoulou/weapon-of-choice:latest"
-                sh "docker push itoulou/weapon-of-choice:fb-wop"
+                echo 'tag and push image...'
+                sh "docker tag fb-wop-image:latest itoulou/weapon-of-choice:latest"
+                sh "docker push itoulou/weapon-of-choice:fb-wop-image"
             }
         }
 
