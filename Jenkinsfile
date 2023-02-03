@@ -17,13 +17,7 @@ pipeline {
                 echo 'building the application...'
                 echo "building version ${NEW_VERSION}"
                 // sh "docker pull itoulou/weapon-of-choice:fatboy-slim"
-                // sh "docker build -t fatboy-slim-wop ."
-                // sh "npm install"
                 sh "docker-compose up -d --build"
-                // sh "docker pull postgres"
-                // sh "docker run --name postgres -e POSTGRES_HOST=postgres POSTGRES_PASSWORD=wop -d postgres "
-                // sh "docker build -t fatboy-slim-wop ."
-                // sh "docker run -d -it -p 5000:5000 --name=app fatboy-slim-wop npm run start:docker -- --host=0.0.0.0"
             }
         }
 
@@ -33,9 +27,14 @@ pipeline {
                 sh "docker ps"
                 sh "docker exec fatboy-slim-wop npm run pretest"
                 sh "docker exec fatboy-slim-wop npm run test-unit"
-                // sh "npm run test-unit"
-                // sh "npm run pretest"
-                // sh "npm run test-unit"
+            }
+        }
+
+        stage("push image to DockerHub") {
+            steps {
+                echo 'pushing image...'
+                sh "docker image tag fatboy-slim-wop itoulou/weapon-of-choice:latest"
+                sh "docker push itoulou/weapon-of-choice:fatboy-slim-wop"
             }
         }
 
