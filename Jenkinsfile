@@ -17,7 +17,7 @@ pipeline {
                 echo 'building the application...'
                 echo "building version ${NEW_VERSION}"
                 // sh "docker pull itoulou/weapon-of-choice:fatboy-slim"
-                sh "docker-compose up -d --build -p fatboy-slim-wop"
+                sh "docker-compose up -d --build"
             }
         }
 
@@ -33,8 +33,8 @@ pipeline {
         stage("push image to DockerHub") {
             steps {
                 echo 'pushing image...'
-                sh "docker image tag fatboy-slim-wop itoulou/weapon-of-choice:latest"
-                sh "docker push itoulou/weapon-of-choice:fatboy-slim-wop"
+                sh "docker image tag fb-wop itoulou/weapon-of-choice:latest"
+                sh "docker push itoulou/weapon-of-choice:fb-wop"
             }
         }
 

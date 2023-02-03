@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   fatboy-slim-wop:
+    image: fb-wop
     container_name: fatboy-slim-wop
     build: .
     ports:
