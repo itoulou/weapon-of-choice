@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo 'tag and push image...'
                 sh "docker tag fb-wop-image:latest itoulou/weapon-of-choice:latest"
-                sh "docker push itoulou/weapon-of-choice:fb-wop-image"
+                sh "docker push itoulou/weapon-of-choice:latest"
             }
         }
 
