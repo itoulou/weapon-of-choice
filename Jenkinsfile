@@ -9,6 +9,8 @@ pipeline {
     environment {
         NEW_VERSION = '1.0.0'
         // SERVER_CREDENTIALS = credentials('server-credentials')
+        AWS_ACCESS_KEY_ID     = credentials('aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
     }
 
     stages {
@@ -35,6 +37,14 @@ pipeline {
                 echo 'tag and push image...'
                 sh "docker tag fb-wop-image:latest itoulou/weapon-of-choice:latest"
                 sh "docker push itoulou/weapon-of-choice:latest"
+            }
+        }
+
+        stage("create demo env") {
+            steps {
+                echo "set up env vars"
+                echo "access key = ${AWS_ACCESS_KEY_ID}"
+                echo "secret key = ${AWS_SECRET_ACCESS_KEY}"
             }
         }
 
