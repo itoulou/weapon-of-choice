@@ -48,10 +48,10 @@ pipeline {
                 echo "set up env vars"
                 sh """
                 docker exec fatboy-slim-wop /bin/sh
-                TF_VAR_access_key=${AWS_ACCESS_KEY_ID}
-                TF_VAR_secret_key=${AWS_SECRET_ACCESS_KEY}
-                TF_VAR_db_username=${DB_STAGING_USERNAME}
-                TF_VAR_db_password=${DB_STAGING_PASSWORD}
+                TF_VAR_access_key=${AWS_ACCESS_KEY_ID}\
+                TF_VAR_secret_key=${AWS_SECRET_ACCESS_KEY}\
+                TF_VAR_db_username=${DB_STAGING_USERNAME}\
+                TF_VAR_db_password=${DB_STAGING_PASSWORD}\
                 terraform -chdir=./deployment/staging plan
                 """
             }
