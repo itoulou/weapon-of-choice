@@ -25,5 +25,13 @@ variable "number_of_instances" {
 }
 
 variable "ami_key_pair_name" {
-        default = "wop-Ivan-kp"
+    default = "wop-Ivan-kp"
+}
+
+variable "db_username" {
+    description = "db username"
+}
+
+variable "db_password" {
+    description = "db password"
 }

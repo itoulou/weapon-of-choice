@@ -11,6 +11,9 @@ pipeline {
         // SERVER_CREDENTIALS = credentials('server-credentials')
         AWS_ACCESS_KEY_ID     = credentials('aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+        DB_STAGING_USERNAME   = credentials('db-username-staging')
+        DB_STAGING_USERNAME   = credentials('db-password-staging')
+
     }
 
     stages {
@@ -43,8 +46,14 @@ pipeline {
         stage("create demo env") {
             steps {
                 echo "set up env vars"
-                echo "access key = ${AWS_ACCESS_KEY_ID}"
-                echo "secret key = ${AWS_SECRET_ACCESS_KEY}"
+                sh "docker exec -it fatboy-slim-wop /bin/sh"
+                sh """
+                TF_VAR_access_key=${AWS_ACCESS_KEY_ID}
+                TF_VAR_secret_key=${AWS_SECRET_ACCESS_KEY}
+                TF_VAR_db_username=${DB_STAGING_USERNAME}
+                TF_VAR_db_password=${DB_STAGING_PASSWORD}
+                terraform -chdir=./deployment/staging plan
+                """
             }
         }
 
