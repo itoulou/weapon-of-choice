@@ -43,7 +43,7 @@ pipeline {
             }
         }
 
-        stage("create demo env") {
+        stage("create staging env") {
             steps {
                 echo "set up env vars"
                 sh "docker exec -it fatboy-slim-wop /bin/sh"
