@@ -12,7 +12,7 @@ pipeline {
         AWS_ACCESS_KEY_ID     = credentials('aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
         DB_STAGING_USERNAME   = credentials('db-username-staging')
-        DB_STAGING_USERNAME   = credentials('db-password-staging')
+        DB_STAGING_PASSWORD   = credentials('db-password-staging')
 
     }
 
