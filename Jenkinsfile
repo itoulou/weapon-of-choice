@@ -38,8 +38,10 @@ pipeline {
         stage("push image to DockerHub") {
             steps {
                 echo 'tag and push image...'
-                sh "docker tag fb-wop-image:latest itoulou/weapon-of-choice:latest"
-                sh "docker push itoulou/weapon-of-choice:latest"
+                login="$(aws ecr get-login-password --region eu-west-2)"
+                echo "${login} | docker login --username AWS --password-stdin 118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging"
+                sh "docker tag fb-wop-image:latest ivan-devops-training/fatboy-staging:latest"
+                sh "docker push ivan-devops-training/fatboy-staging:latest"
             }
         }
 
