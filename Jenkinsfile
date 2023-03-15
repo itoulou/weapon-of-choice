@@ -9,8 +9,8 @@ pipeline {
     environment {
         NEW_VERSION = '1.0.0'
         // SERVER_CREDENTIALS = credentials('server-credentials')
-        // AWS_ACCESS_KEY_ID     = credentials('aws-secret-key-id')
-        // AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+        AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
         // DB_STAGING_USERNAME   = credentials('db-username-staging')
         // DB_STAGING_PASSWORD   = credentials('db-password-staging')
 
@@ -39,6 +39,8 @@ pipeline {
             steps {
                 echo 'tag and push image...'
                 script {
+                    sh "export ${AWS_ACCESS_KEY_ID}"
+                    sh "export ${AWS_SECRET_ACCESS_KEY}"
                     def login="\$(aws ecr get-login-password --region eu-west-2)"
                     echo "${login} | docker login --username AWS --password-stdin 118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging"
                     sh "docker tag fb-wop-image:latest ivan-devops-training/fatboy-staging:latest"
