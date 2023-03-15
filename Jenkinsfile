@@ -45,7 +45,7 @@ pipeline {
 
         stage("create staging env") {
             steps {
-                // echo "set up env vars"
+                echo "set up env vars"
                 // sh """
                 // TF_VAR_access_key=${AWS_ACCESS_KEY_ID}\
                 // TF_VAR_secret_key=${AWS_SECRET_ACCESS_KEY}\
