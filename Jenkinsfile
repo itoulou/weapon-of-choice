@@ -38,9 +38,14 @@ pipeline {
         stage("push image to DockerHub") {
             steps {
                 echo 'tag and push image...'
-                withDockerRegistry([ credentialsId: "ecr-credentials", url: "118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging" ]) {
-                    sh "docker tag fb-wop-image:latest ivan-devops-training/fatboy-staging:latest"
-                    sh "docker push ivan-devops-training/fatboy-staging:latest"
+                // withDockerRegistry([ credentialsId: "ecr-credentials", url: "118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging" ]) {
+                    sh "docker tag fb-wop-image:latest 118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging:latest"
+                //     sh "docker push ivan-devops-training/fatboy-staging:latest"
+                // }
+                script {
+                    docker.withRegistry("https://118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging", "ecr:eu-west-2:ecr-credentials") {
+                        docker.image("118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging:latest").push()
+                    }
                 }
             }
         }
