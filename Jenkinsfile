@@ -43,7 +43,7 @@ pipeline {
                 //     sh "docker push ivan-devops-training/fatboy-staging:latest"
                 // }
                 script {
-                    docker.withRegistry("https://118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging", "ecr:eu-west-2:ecr-credentials") {
+                    docker.withRegistry("https://118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging", "ecr:eu-west-2:118531441366") {
                         docker.image("118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging:latest").push()
                     }
                 }
