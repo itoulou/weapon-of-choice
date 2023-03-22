@@ -3,8 +3,8 @@ const config = require('config');
 
 logging = false
 let sequelize;
-
-if (config.util.getEnv('NODE_ENV') !== 'staging' || config.util.getEnv('NODE_ENV') !== 'prod') {
+console.log("ENV=> ", config.util.getEnv('NODE_ENV'));
+if (config.util.getEnv('NODE_ENV') !== 'staging' && config.util.getEnv('NODE_ENV') !== 'prod') {
     sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:5432/${config.db.database}`, {dialect: 'postgres', logging: logging});
 } else {
     sequelize = new Sequelize(config.util.getEnv('DB_URI'));
