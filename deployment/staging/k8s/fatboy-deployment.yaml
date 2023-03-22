@@ -36,3 +36,15 @@ spec:
               value: staging
             - name: DB_URI
               value: postgres://wop_username:wop_password@ivan-devops-db-staging.cxkseou344rx.eu-west-2.rds.amazonaws.com/fatboyslimdb
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: basic-auth
+                  key: aws_access_key
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: basic-auth
+                  key: aws_secret_key
+            - name: AWS_REGION
+              value: eu-west-2
