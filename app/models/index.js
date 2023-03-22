@@ -7,7 +7,7 @@ console.log("ENV=> ", config.util.getEnv('NODE_ENV'));
 if (config.util.getEnv('NODE_ENV') !== 'staging' && config.util.getEnv('NODE_ENV') !== 'prod') {
     sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:5432/${config.db.database}`, {dialect: 'postgres', logging: logging});
 } else {
-    sequelize = new Sequelize(config.util.getEnv('DB_URI'), {dialect: 'postgres', logging: logging});
+    sequelize = new Sequelize(process.env.DB_URI, {dialect: 'postgres', logging: logging});
 }
 
 sequelize.authenticate().then(() => {
