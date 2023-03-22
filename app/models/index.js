@@ -2,7 +2,13 @@ const { Sequelize, DataTypes } = require('sequelize');
 const config = require('config');
 
 logging = false
-const sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:5432/${config.db.database}`, {dialect: 'postgres', logging: logging});
+let sequelize;
+
+if (config.util.getEnv('NODE_ENV') !== 'staging' || config.util.getEnv('NODE_ENV') !== 'prod') {
+    sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:5432/${config.db.database}`, {dialect: 'postgres', logging: logging});
+} else {
+    sequelize = new Sequelize(config.util.getEnv('DB_URI'));
+}
 
 sequelize.authenticate().then(() => {
     console.log(`Database connected to ${sequelize.config.database}`);

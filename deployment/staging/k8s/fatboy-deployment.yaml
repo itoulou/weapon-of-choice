@@ -1,0 +1,38 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fatboy-staging
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fatboy-slim
+  namespace: fatboy-staging
+spec:
+  selector:
+    matchLabels:
+      app: fatboy-slim
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fatboy-slim
+    spec:
+      containers:
+        - name: fatboy-slim
+          image: 118531441366.dkr.ecr.eu-west-2.amazonaws.com/ivan-devops-training/fatboy-staging:latest
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
+          env:
+            - name: NODE_ENV
+              value: staging
+            - name: DB_URI
+              value: 'postgres://wop_username:wop_password@ivan-devops-db-staging.cxkseou344rx.eu-west-2.rds.amazonaws.com/fatboyslimdb'

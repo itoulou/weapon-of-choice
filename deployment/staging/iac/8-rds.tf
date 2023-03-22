@@ -1,4 +1,4 @@
-resource "aws_db_instance" "default" {
+resource "aws_db_instance" "staging_db" {
   allocated_storage    = 10
   db_name              = "fatboyslimdb"
   engine               = "postgres"
@@ -7,4 +7,13 @@ resource "aws_db_instance" "default" {
   username             = var.db_username
   password             = var.db_password
   skip_final_snapshot  = true
+  identifier           = "ivan-devops-db-staging"
+}
+
+variable "db_username" {
+    description = "db username"
+}
+
+variable "db_password" {
+    description = "db password"
 }
