@@ -8,7 +8,7 @@ app:
 db:
   secretKey: qwertyuiopasdfghjklzxcvbnm
   username: 'fatboyslim'
-  password: 'wop_password'
+  password: 'wop'
   database: 'weapon_of_choice'
   host: 'postgres'
   dialect: 'postgres'
