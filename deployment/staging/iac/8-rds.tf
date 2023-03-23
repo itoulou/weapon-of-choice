@@ -8,6 +8,8 @@ resource "aws_db_instance" "staging_db" {
   password             = var.db_password
   skip_final_snapshot  = true
   identifier           = "ivan-devops-db-staging"
+  vpc_security_group_ids = ["sg-007012b44e425e330"]
+  db_subnet_group_name = "${aws_db_subnet_group.db_subnet_group.name}"
 }
 
 variable "db_username" {
@@ -16,4 +18,13 @@ variable "db_username" {
 
 variable "db_password" {
     description = "db password"
+}
+
+resource "aws_db_subnet_group" "db_subnet_group" {
+  name       = aws_eks_cluster.cluster.name
+  subnet_ids = [aws_subnet.private-eu-west-2a.id, aws_subnet.private-eu-west-2b.id]
+
+  tags = {
+    Name = aws_eks_cluster.cluster.name
+  }
 }
