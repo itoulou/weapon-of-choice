@@ -36,14 +36,6 @@ spec:
               value: staging
             - name: DB_URI
               value: postgres://wop_username:wop_password@ivan-devops-db-staging.cxkseou344rx.eu-west-2.rds.amazonaws.com:5432/fatboyslimdb
-            - name: DB_USERNAME
-              value: wop_username
-            - name: DB_PASSWORD
-              value: wop_password
-            - name: DB_HOST
-              value: ivan-devops-db-staging.cxkseou344rx.eu-west-2.rds.amazonaws.com
-            - name: DB_NAME
-              value: fatboyslimdb
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:

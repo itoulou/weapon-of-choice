@@ -8,8 +8,11 @@ console.log("DB_URI=> ", process.env.DB_URI)
 if (config.util.getEnv('NODE_ENV') !== 'staging' && config.util.getEnv('NODE_ENV') !== 'prod') {
     sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:5432/${config.db.database}`, {dialect: 'postgres', logging: logging});
 } else {
-    sequelize = new Sequelize(`postgres://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:5432/${process.env.DB_NAME}`, {dialectOptions: 
-    'postgres', logging: logging});
+    sequelize = new Sequelize(process.env.DB_URI, {dialectOptions: {
+        ssl: {
+            rejectUnauthorized: false
+        }
+    }, logging: logging});
 }
 
 sequelize.authenticate().then(() => {
