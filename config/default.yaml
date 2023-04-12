@@ -10,7 +10,7 @@ db:
   username: 'fatboyslim'
   password: 'wop'
   database: 'weapon_of_choice'
-  host: '127.0.0.1'
+  host: 'postgres'
   dialect: 'postgres'
 api:
   url: https://spotify23.p.rapidapi.com/
