@@ -8,7 +8,7 @@ console.log("DB_URI=> ", process.env.DB_URI)
 if (config.util.getEnv('NODE_ENV') !== 'staging' && config.util.getEnv('NODE_ENV') !== 'prod') {
     sequelize = new Sequelize(`postgres://${config.db.username}:${config.db.password}@${config.db.host}:5432/${config.db.database}`, {dialect: 'postgres', logging: logging});
 } else {
-    sequelize = new Sequelize('postgres://wop_username@ivan-devops-db-staging.cxkseou344rx.eu-west-2.rds.amazonaws.com:5432/fatboyslimdb', {dialectOptions: {
+    sequelize = new Sequelize(process.env.DB_URI, {dialectOptions: {
         ssl: {
             rejectUnauthorized: false
         }
