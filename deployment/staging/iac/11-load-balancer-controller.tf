@@ -3,7 +3,7 @@ resource "helm_release" "aws-load-balancer-controller" {
 
   repository = "https://aws.github.io/eks-charts"
   chart      = "aws-load-balancer-controller"
-  namespace  = "fatboy-staging"
+  namespace  = "kube-system"
   version    = "1.4.1"
 
   set {

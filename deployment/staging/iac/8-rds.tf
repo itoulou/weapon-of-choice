@@ -8,7 +8,7 @@ resource "aws_db_instance" "staging_db" {
   password             = var.db_password
   skip_final_snapshot  = true
   identifier           = "ivan-devops-db-staging"
-  vpc_security_group_ids = ["sg-007012b44e425e330"]
+  vpc_security_group_ids = ["sg-08a9f63a98a0f004b"]
   db_subnet_group_name = "${aws_db_subnet_group.db_subnet_group.name}"
 }
 
