@@ -12,6 +12,6 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
+  - port: 5000
   selector:
-    run: fatboy-slim
+    app: fatboy-slim

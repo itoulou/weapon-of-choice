@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: fatboy-slim-service
   namespace: fatboy-staging
+  labels:
+    run: fatboy-slim-service
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: nlb
 spec:
